@@ -232,7 +232,7 @@ function PlaceOrder() {
               <img className="h-5 mx-4" src={assets.stripe_logo} alt="" />
             </div>
 
-            <div
+            {/* <div
               className="flex items-center gap-3 border border-gray-500 p-2 px-3 cursor-pointer"
               onClick={() => setMethod("razorpay")}
             >
@@ -242,7 +242,7 @@ function PlaceOrder() {
                 } `}
               ></p>
               <img className="h-5 mx-4" src={assets.razorpay_logo} alt="" />
-            </div>
+            </div> */}
 
             <div
               className="flex items-center gap-3 border border-gray-500 p-2 px-3 cursor-pointer "

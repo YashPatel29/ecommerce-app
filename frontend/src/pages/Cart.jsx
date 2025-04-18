@@ -3,12 +3,18 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import { assets } from "../assets/frontend_assets/assets";
 import CartTotal from "../components/CartTotal";
+import { toast } from "react-toastify";
 
 function Cart() {
-  const { products, currency, cartItems, updateQuantity, navigate } =
+  const { products, currency, cartItems, updateQuantity, navigate, token } =
     useContext(ShopContext);
 
   const [cartData, setCartData] = useState([]);
+
+  const proceedHandler = () => {
+    toast.error("Please Login First");
+    navigate("/login");
+  };
 
   useEffect(() => {
     if (products.length > 0) {
@@ -102,7 +108,7 @@ function Cart() {
           <div className="w-full text-end">
             <button
               className="bg-black text-white text-sm my-8 px-8 py-3 cursor-pointer"
-              onClick={() => navigate("/place-order")}
+              onClick={token ? () => navigate("/place-order") : proceedHandler}
             >
               PROCEED TO CHECKOUT
             </button>
